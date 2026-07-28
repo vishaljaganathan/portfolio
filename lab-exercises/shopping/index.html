@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetStore | Online Shopping</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-paw"></i> Pet<span>Store</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#products">Dogs</a></li>
+            <li><a href="#products">Cats</a></li>
+            <li><a href="#products">Accessories</a></li>
+        </ul>
+        <div class="nav-icons">
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="#"><i class="fas fa-user"></i></a>
+            <a href="#" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Happy Pets, Happy Life.</h1>
+            <p>Spoil your furry friends with premium food, cozy beds, and interactive toys at unbeatable prices.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </header>
+
+    <!-- Product Section -->
+    <section id="products" class="products-section">
+        <div class="section-header">
+            <h2>Featured <span class="highlight">Products</span></h2>
+            <p>Discover our top picks for your pets</p>
+        </div>
+
+        <div class="product-grid">
+            <!-- Product 1: Pet Toy -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./assets/image1.png" alt="Pet Toys">
+                </div>
+                <div class="product-info">
+                    <div class="category">Toys</div>
+                    <h3 class="product-title">Chew Toy</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>(128)</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">₹ 450 <span class="old-price">₹ 600</span></span>
+                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: Pet Collar -->
+            <div class="product-card">
+                <div class="product-image">
+                    <!-- Dog with collar image placeholder -->
+                    <img src="./assets/image2.png" alt="Pet Collar">
+                </div>
+                <div class="product-info">
+                    <div class="category">Accessories</div>
+                    <h3 class="product-title">Reflective Pet Collar</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span>(342)</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">₹ 299</span>
+                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3: Pet Leash -->
+            <div class="product-card">
+                <div class="product-image">
+                    <!-- Leash placeholder -->
+                    <img src="./assets/image3.png" alt="Pet Leash">
+                </div>
+                <div class="product-info">
+                    <div class="category">Walking Essentials</div>
+                    <h3 class="product-title">Heavy Duty Retractable Leash</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>(89)</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">₹ 599</span>
+                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4: Pet Harness -->
+            <div class="product-card">
+                <div class="product-image">
+                    <!-- Dog in harness placeholder -->
+                    <img src="./assets/image4.png" alt="Pet Harness">
+                </div>
+                <div class="product-info">
+                    <div class="category">Walking Essentials</div>
+                    <h3 class="product-title">Adjustable Comfort Harness</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span>(210)</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">₹ 899 <span class="old-price">₹ 1,199</span></span>
+                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3><i class="fas fa-paw"></i> Pet<span>Store</span></h3>
+                <p>Your one-stop destination for premium pet supplies and accessories.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PetStore. MCA Lab Exercise 2.</p>
+        </div>
+    </footer>
+</body>
+</html>
