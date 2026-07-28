@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Tech Quiz | MCA Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container glass-panel">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <i class="fas fa-laptop-code title-icon"></i>
+            <h1>Web Technology Quiz</h1>
+            <p>Test your knowledge of HTML, CSS, and JavaScript with these 20 questions.</p>
+            <button id="start-btn" class="btn">Start Quiz</button>
+        </div>
+
+        <!-- Question Screen -->
+        <div id="question-screen" class="screen">
+            <div class="header">
+                <span id="question-counter">Question 1 / 20</span>
+                <span id="score-display">Score: 0</span>
+            </div>
+            <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+            </div>
+            
+            <h2 id="question-text">Question goes here?</h2>
+            
+            <div id="options-container" class="options-grid">
+                <!-- Options injected by JS -->
+            </div>
+            
+            <button id="next-btn" class="btn hidden">Next Question</button>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen">
+            <i class="fas fa-trophy title-icon gold"></i>
+            <h1>Quiz Completed!</h1>
+            <div class="score-circle">
+                <span id="final-score">0</span>
+                <span class="total">/ 20</span>
+            </div>
+            <p id="result-message">Great job!</p>
+            <div class="result-buttons">
+                <button id="restart-btn" class="btn btn-outline">Restart Quiz</button>
+                <a href="../../index.html" class="btn">Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
