@@ -15,7 +15,10 @@
             <i class="fas fa-laptop-code title-icon"></i>
             <h1>Web Technology Quiz</h1>
             <p>Test your knowledge of HTML, CSS, and JavaScript with these 20 questions.</p>
-            <button id="start-btn" class="btn">Start Quiz</button>
+            <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
+                <a href="../../index.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+                <button id="start-btn" class="btn">Start Quiz <i class="fas fa-play"></i></button>
+            </div>
         </div>
 
         <!-- Question Screen -->
@@ -34,7 +37,10 @@
                 <!-- Options injected by JS -->
             </div>
             
-            <button id="next-btn" class="btn hidden">Next Question</button>
+            <div style="display: flex; gap: 1rem; width: 100%;">
+                <a href="../../index.html" class="btn btn-outline" style="flex: 1; text-align: center;"><i class="fas fa-arrow-left"></i> Quit</a>
+                <button id="next-btn" class="btn hidden" style="flex: 1;">Next Question</button>
+            </div>
         </div>
 
         <!-- Result Screen -->
