@@ -26,8 +26,9 @@
         <div class="nav-icons">
             <a href="#"><i class="fas fa-search"></i></a>
             <a href="#"><i class="fas fa-user"></i></a>
-            <a href="#" class="cart-icon">
+            <a href="#" class="cart-icon" id="cart-icon">
                 <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge" id="cart-badge">0</span>
             </a>
         </div>
     </nav>
@@ -63,7 +64,7 @@
                     </div>
                     <div class="price-row">
                         <span class="price">₹ 450 <span class="old-price">₹ 600</span></span>
-                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                        <button class="add-to-cart" data-id="1" data-name="Chew Toy" data-price="450" data-image="./assets/image1.png"><i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -83,7 +84,7 @@
                     </div>
                     <div class="price-row">
                         <span class="price">₹ 299</span>
-                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                        <button class="add-to-cart" data-id="2" data-name="Reflective Pet Collar" data-price="299" data-image="./assets/image2.png"><i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -103,7 +104,7 @@
                     </div>
                     <div class="price-row">
                         <span class="price">₹ 599</span>
-                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                        <button class="add-to-cart" data-id="3" data-name="Heavy Duty Retractable Leash" data-price="599" data-image="./assets/image3.png"><i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -123,7 +124,7 @@
                     </div>
                     <div class="price-row">
                         <span class="price">₹ 899 <span class="old-price">₹ 1,199</span></span>
-                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                        <button class="add-to-cart" data-id="4" data-name="Adjustable Comfort Harness" data-price="899" data-image="./assets/image4.png"><i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -151,5 +152,27 @@
             <p>&copy; 2026 PetStore. MCA Lab Exercise 2.</p>
         </div>
     </footer>
+
+    <!-- Cart Overlay & Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Items will be dynamically added here -->
+            <p class="empty-cart-msg">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">₹ 0</span>
+            </div>
+            <button class="btn checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

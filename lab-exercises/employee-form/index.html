@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration Form | MCA Lab Exercise</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-box">
+            <div class="form-header">
+                <h2>Employee Registration</h2>
+                <p>Please enter the employee details below.</p>
+            </div>
+            
+            <form id="employeeForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="email">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group half">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="department">Department</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-building"></i>
+                            <select id="department" name="department" required>
+                                <option value="" disabled selected>Select Department</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="design">Design</option>
+                                <option value="hr">Human Resources</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="sales">Sales</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="joinDate">Joining Date</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="joinDate" name="joinDate" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <div class="input-wrapper textarea-wrapper">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <textarea id="address" name="address" rows="3" placeholder="Full residential address" required></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="male" required> Male
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="female" required> Female
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="other" required> Other
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Register Employee <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <div id="successMessage" class="success-message hidden">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Registration Successful!</h3>
+                <p>The employee details have been saved successfully.</p>
+                <button id="addAnotherBtn" class="add-another-btn">Add Another Employee</button>
+            </div>
+        </div>
+        
+        <a href="../../index.html#lab-exercises" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
