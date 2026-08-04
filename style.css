@@ -25,6 +25,7 @@
 
 html {
     scroll-behavior: smooth; /* Smooth Scroll */
+    overflow-x: hidden;
 }
 
 body {
@@ -538,6 +539,12 @@ ul {
     padding: 2.5rem;
 }
 
+.contact-form button[type="submit"] {
+    display: block;
+    margin: 0 auto;
+}
+
+
 .input-group {
     margin-bottom: 1.5rem;
 }
@@ -636,5 +643,42 @@ ul {
     
     .section-title {
         font-size: 2rem;
+    }
+    
+    /* Fix grid overflows on small screens */
+    .projects-grid,
+    .skills-container,
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Reduce padding for small screens */
+    .about-container,
+    .skills-container,
+    .contact-form,
+    .contact-info,
+    .project-card,
+    .cert-card {
+        padding: 1.5rem;
+    }
+
+    /* Adjust timeline for mobile */
+    .timeline-item {
+        padding: 1rem 0 1rem 45px;
+    }
+    
+    .timeline::before {
+        left: 10px;
+    }
+    
+    .timeline-dot {
+        left: 2px;
+        width: 14px;
+        height: 14px;
+        top: 2rem;
+    }
+    
+    .timeline-content {
+        padding: 1.5rem;
     }
 }
