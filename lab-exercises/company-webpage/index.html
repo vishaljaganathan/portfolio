@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Webpage | Lab Exercise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar glass-card">
+            <a class="back-btn" href="../../index.html" aria-label="Back to portfolio">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="brand">
+                <span class="brand-icon"><i class="fas fa-building"></i></span>
+                <span>CompanyHub</span>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Workforce Portal</p>
+                <h1>Modern company website for employees and admins.</h1>
+                <p class="subtext">Create your account, log in, and see the right information based on your role.</p>
+                <div class="hero-actions">
+                    <a class="primary-btn" href="#register">Register</a>
+                    <a class="secondary-btn" href="#login">Login</a>
+                </div>
+            </div>
+
+            <div class="hero-card glass-card">
+                <div class="mini-stat">
+                    <span class="mini-icon"><i class="fas fa-users"></i></span>
+                    <div>
+                        <strong id="userCount">0</strong>
+                        <small>Active users</small>
+                    </div>
+                </div>
+                <div class="mini-stat">
+                    <span class="mini-icon"><i class="fas fa-user-check"></i></span>
+                    <div>
+                        <strong id="adminCount">0</strong>
+                        <small>Admins</small>
+                    </div>
+                </div>
+                <div class="mini-stat">
+                    <span class="mini-icon"><i class="fas fa-user-tie"></i></span>
+                    <div>
+                        <strong id="employeeCount">0</strong>
+                        <small>Employees</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="forms-grid">
+            <div class="glass-card auth-card" id="register">
+                <div class="card-header">
+                    <h2>Registration</h2>
+                    <span class="pill">Create Account</span>
+                </div>
+
+                <form id="registerForm">
+                    <div class="field-group">
+                        <label for="regName">Full Name</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-user"></i>
+                            <input id="regName" type="text" placeholder="e.g. Jane Doe" required />
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="regEmail">Email</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-envelope"></i>
+                            <input id="regEmail" type="email" placeholder="jane@gmail.com" required />
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="regPassword">Password</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-lock"></i>
+                            <input id="regPassword" type="password" placeholder="Enter password" required />
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="regRole">Role</label>
+                        <div class="input-wrap select-wrap">
+                            <i class="fas fa-briefcase"></i>
+                            <select id="regRole" required>
+                                <option value="employee" selected>Employee</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="primary-btn block-btn">Register</button>
+                </form>
+            </div>
+
+            <div class="glass-card auth-card" id="login">
+                <div class="card-header">
+                    <h2>Login</h2>
+                    <span class="pill success">Secure</span>
+                </div>
+
+                <form id="loginForm">
+                    <div class="field-group">
+                        <label for="loginEmail">Email</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-envelope"></i>
+                            <input id="loginEmail" type="email" placeholder="Enter your email" required />
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-lock"></i>
+                            <input id="loginPassword" type="password" placeholder="Enter password" required />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="primary-btn block-btn">Login</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="dashboard" class="dashboard glass-card hidden">
+            <div class="dashboard-header">
+                <div>
+                    <p class="eyebrow small">Welcome back</p>
+                    <h2 id="welcomeUser">Dashboard</h2>
+                </div>
+                <button id="logoutBtn" class="secondary-btn small-btn">Logout</button>
+            </div>
+
+            <div id="dashboardMessage" class="dashboard-message"></div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <div id="toast" class="toast"></div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
