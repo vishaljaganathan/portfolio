@@ -158,12 +158,24 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    color: var(--text-main);
+    color: var(--text-main) !important;
     font: inherit;
+    -webkit-text-fill-color: var(--text-main);
 }
 
 .input-wrap input::placeholder {
     color: rgba(255, 255, 255, 0.45);
+}
+
+.input-wrap select option {
+    background: #101a2a;
+    color: var(--text-main);
+}
+
+.input-wrap select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 .form-actions {
