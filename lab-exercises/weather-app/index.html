@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App | Lab Exercise</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="weather-container">
+        <div class="weather-card">
+            <!-- Header with Back Button -->
+            <div class="card-header">
+                <a href="../../index.html" class="back-btn" title="Back to Portfolio">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <h2>Weather App</h2>
+                <div class="header-placeholder"></div>
+            </div>
+
+            <!-- Search Form -->
+            <form id="searchForm" class="search-box" onsubmit="getWeather(event)">
+                <input 
+                    type="text" 
+                    id="cityInput" 
+                    placeholder="Enter city name..." 
+                    autocomplete="off" 
+                    required 
+                />
+                <button type="submit" id="searchBtn" title="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="loading" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Fetching weather...</span>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error" class="error-msg" style="display: none;">
+                <i class="fas fa-exclamation-circle"></i>
+                <span id="errorText">City not found.</span>
+            </div>
+
+            <!-- Weather Details -->
+            <div id="weatherBody" class="weather-body">
+                <!-- Condition Icon -->
+                <div class="icon-wrap">
+                    <i id="weatherIcon" class="fas fa-sun weather-icon"></i>
+                </div>
+
+                <!-- Temperature & Condition -->
+                <div class="temp-wrap">
+                    <span id="temp" class="temp-val">31</span><span class="temp-unit">°C</span>
+                </div>
+                <p id="condition" class="condition-text">Clear Sky</p>
+                <h3 id="location" class="location-text">Puducherry, India</h3>
+
+                <!-- Extra Info (Humidity & Wind) -->
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <i class="fas fa-water detail-icon"></i>
+                        <div class="detail-text">
+                            <span class="detail-title">Humidity</span>
+                            <span id="humidity" class="detail-value">63%</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-wind detail-icon"></i>
+                        <div class="detail-text">
+                            <span class="detail-title">Wind</span>
+                            <span id="wind" class="detail-value">4.8 km/h</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
