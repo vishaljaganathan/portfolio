@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Computer Science | Pondicherry University</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation Header -->
+    <header class="header-nav">
+        <div class="nav-container">
+            <a href="#" class="brand-wrapper" onclick="switchTab('home')">
+                <div class="brand-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>Dept. of Computer Science</h1>
+                    <span>Pondicherry University (Central University)</span>
+                </div>
+            </a>
+
+            <!-- 4 Required Navigation Tabs -->
+            <ul class="nav-menu">
+                <li class="nav-item active" data-tab="home" onclick="switchTab('home')">
+                    <i class="fas fa-home"></i> Home
+                </li>
+                <li class="nav-item" data-tab="about" onclick="switchTab('about')">
+                    <i class="fas fa-info-circle"></i> About Us
+                </li>
+                <li class="nav-item" data-tab="register" onclick="switchTab('register')">
+                    <i class="fas fa-user-plus"></i> Registration
+                </li>
+                <li class="nav-item" data-tab="login" onclick="switchTab('login')">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button type="button" id="openCodeBtn" class="code-btn">
+                    <i class="fas fa-database"></i> PHP & MySQL Code
+                </button>
+                <a href="../../index.html#lab-exercises" class="portfolio-back-btn">
+                    <i class="fas fa-arrow-left"></i> Portfolio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Content Views -->
+    <main class="main-wrapper">
+
+        <!-- ================= VIEW 1: HOME PAGE ================= -->
+        <section id="tab-home" class="tab-pane active">
+            <!-- Hero Banner -->
+            <div class="dept-hero glass">
+                <span class="badge"><i class="fas fa-graduation-cap"></i> School of Engineering & Technology</span>
+                <h2>Center of Excellence in Computing & AI</h2>
+                <p>Welcome to the Department of Computer Science at Pondicherry University. Empowering minds with quality education, innovative research, and cutting-edge software development practices since 1986.</p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" onclick="switchTab('register')">
+                        <i class="fas fa-user-graduate"></i> Register as Student
+                    </button>
+                    <button class="btn btn-outline" onclick="switchTab('about')">
+                        <i class="fas fa-book-reader"></i> Explore Department
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-strip">
+                <div class="stat-box glass">
+                    <i class="fas fa-user-friends stat-icon"></i>
+                    <div class="stat-num">450+</div>
+                    <div class="stat-label">Scholars & Students</div>
+                </div>
+                <div class="stat-box glass">
+                    <i class="fas fa-chalkboard-teacher stat-icon"></i>
+                    <div class="stat-num">18+</div>
+                    <div class="stat-label">Faculty Experts</div>
+                </div>
+                <div class="stat-box glass">
+                    <i class="fas fa-laptop-code stat-icon"></i>
+                    <div class="stat-num">6</div>
+                    <div class="stat-label">Specialized Labs</div>
+                </div>
+                <div class="stat-box glass">
+                    <i class="fas fa-award stat-icon"></i>
+                    <div class="stat-num">95%</div>
+                    <div class="stat-label">Placement Record</div>
+                </div>
+            </div>
+
+            <!-- Content Split: Programs Offered & Notice Board -->
+            <div class="home-split">
+                <!-- Academic Programs -->
+                <div class="glass" style="padding: 1.8rem;">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-graduation-cap"></i> Academic Degree Programs</h3>
+                        <span class="badge" style="background: rgba(6,182,212,0.15); color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.75rem;">AICTE Approved</span>
+                    </div>
+                    <div class="courses-grid">
+                        <div class="course-card">
+                            <span class="course-badge">2 Years / 4 Semesters</span>
+                            <h4>M.C.A (Computer Applications)</h4>
+                            <p>Rigorous industry-aligned curriculum covering Web Technologies, Cloud Platforms, MERN Stack, and Advanced Algorithms.</p>
+                        </div>
+                        <div class="course-card">
+                            <span class="course-badge">2 Years / 4 Semesters</span>
+                            <h4>M.Sc. Computer Science</h4>
+                            <p>Focuses on advanced software engineering, high-performance computing, distributed databases, and machine learning.</p>
+                        </div>
+                        <div class="course-card">
+                            <span class="course-badge">2 Years / 4 Semesters</span>
+                            <h4>M.Tech Computer Science</h4>
+                            <p>Specialization in Network and Information Security, Cryptography, Blockchain, and Cyber Defense Systems.</p>
+                        </div>
+                        <div class="course-card">
+                            <span class="course-badge">Full Time / Part Time</span>
+                            <h4>Ph.D. in Computer Science</h4>
+                            <p>Advanced doctoral research across Artificial Intelligence, NLP, Quantum Computing, Big Data, and IoT.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Announcements & Notices -->
+                <div class="glass" style="padding: 1.8rem;">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-bullhorn"></i> Department Notices</h3>
+                        <span style="font-size: 0.75rem; color: var(--accent); font-weight: 600;">LIVE FEED</span>
+                    </div>
+                    <ul class="notice-list">
+                        <li class="notice-item">
+                            <span class="date"><i class="far fa-calendar-alt"></i> Nov 15, 2026</span>
+                            <h5>CSCA 514: Web Technologies Lab Exam</h5>
+                            <p>Lab practical examinations for MCA III Semester will be conducted in the Central Computer Lab.</p>
+                        </li>
+                        <li class="notice-item">
+                            <span class="date"><i class="far fa-calendar-alt"></i> Nov 20, 2026</span>
+                            <h5>Annual National Tech Symposium 'INFOQUEST'</h5>
+                            <p>Registrations open for coding hackathons, web design, paper presentations, and tech quizzes.</p>
+                        </li>
+                        <li class="notice-item">
+                            <span class="date"><i class="far fa-calendar-alt"></i> Nov 28, 2026</span>
+                            <h5>Guest Lecture on Cloud Native & Microservices</h5>
+                            <p>Delivered by Industry Architect from Sri Aurobindo Infotech for MCA scholars.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 2: ABOUT US ================= -->
+        <section id="tab-about" class="tab-pane">
+            <div class="about-grid">
+                <!-- Vision & Mission -->
+                <div class="about-card glass">
+                    <h3><i class="fas fa-eye"></i> Department Vision</h3>
+                    <p>
+                        To be a premier center of excellence in computer science education, innovation, and research, producing globally competent software professionals and researchers imbued with ethical values and social responsibility.
+                    </p>
+                    <h3 style="margin-top: 1.5rem;"><i class="fas fa-rocket"></i> Department Mission</h3>
+                    <p>
+                        • Provide state-of-the-art educational infrastructure and industry-focused computing curricula.<br>
+                        • Foster interdisciplinary research and collaboration with global tech enterprises.<br>
+                        • Nurture leadership skills, entrepreneurial mindset, and innovative problem-solving among students.
+                    </p>
+                </div>
+
+                <!-- Infrastructure -->
+                <div class="about-card glass">
+                    <h3><i class="fas fa-network-wired"></i> Department Infrastructure</h3>
+                    <p>
+                        The department is equipped with modern, air-conditioned laboratories connected through high-speed gigabit fiber backbone:
+                    </p>
+                    <ul class="facility-list">
+                        <li><i class="fas fa-check-circle"></i> <strong>Web Technologies & Full-Stack Lab:</strong> 60 high-performance workstations for modern web development.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>AI & High Performance Cluster:</strong> NVIDIA GPU workstations for deep learning & NLP.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Database & Cloud Computing Lab:</strong> Dedicated servers hosting MySQL, MongoDB, and virtualization clusters.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Smart Multimedia Classrooms:</strong> Interactive boards and high-definition video conferencing facilities.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Faculty Directory -->
+            <div class="faculty-section glass">
+                <div class="panel-header">
+                    <h3><i class="fas fa-users-cog"></i> Faculty & Research Leadership</h3>
+                </div>
+                <div class="faculty-grid">
+                    <div class="faculty-card">
+                        <div class="faculty-avatar"><i class="fas fa-user-tie"></i></div>
+                        <h4>Dr. R. Subramanian</h4>
+                        <div class="role">Professor & Head of Department</div>
+                        <div class="spec">Cloud Computing, Distributed Systems & Big Data</div>
+                    </div>
+                    <div class="faculty-card">
+                        <div class="faculty-avatar"><i class="fas fa-user-tie"></i></div>
+                        <h4>Dr. K. Suresh Joseph</h4>
+                        <div class="role">Professor</div>
+                        <div class="spec">Artificial Intelligence, Knowledge Engineering & Web Systems</div>
+                    </div>
+                    <div class="faculty-card">
+                        <div class="faculty-avatar"><i class="fas fa-user-tie"></i></div>
+                        <h4>Dr. S. Siva Sathya</h4>
+                        <div class="role">Professor</div>
+                        <div class="spec">Evolutionary Computing, Bio-inspired Algorithms & Security</div>
+                    </div>
+                    <div class="faculty-card">
+                        <div class="faculty-avatar"><i class="fas fa-user-tie"></i></div>
+                        <h4>Dr. P. Shanthi Bala</h4>
+                        <div class="role">Associate Professor</div>
+                        <div class="spec">IoT Architecture, Wireless Networks & Web Engineering</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 3: REGISTRATION FORM ================= -->
+        <section id="tab-register" class="tab-pane">
+            <div class="auth-wrapper glass">
+                <div class="auth-header">
+                    <span class="badge" style="background: rgba(59,130,246,0.15); color: var(--primary-light); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 600;">
+                        Student Portal
+                    </span>
+                    <h2>Department Registration</h2>
+                    <p>Create your department student account to access academic records.</p>
+                </div>
+
+                <div id="registerAlert" class="alert-box hidden"></div>
+
+                <form id="studentRegisterForm">
+                    <div class="form-group">
+                        <label for="regFullName">Full Name *</label>
+                        <div class="input-box">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="regFullName" placeholder="e.g. Vishal Jaganathan" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="regStudentId">Register Number / Roll No *</label>
+                            <div class="input-box">
+                                <i class="fas fa-id-card"></i>
+                                <input type="text" id="regStudentId" placeholder="e.g. 24MCA001" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="regEmail">University Email *</label>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="regEmail" placeholder="student@pondiuni.ac.in" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="regProgram">Program / Degree *</label>
+                            <div class="input-box">
+                                <i class="fas fa-graduation-cap"></i>
+                                <select id="regProgram" required>
+                                    <option value="MCA" selected>M.C.A (Master of Computer Applications)</option>
+                                    <option value="M.Sc. CS">M.Sc. Computer Science</option>
+                                    <option value="M.Tech">M.Tech Network & Security</option>
+                                    <option value="Ph.D.">Ph.D. Computer Science</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="regSemester">Current Semester *</label>
+                            <div class="input-box">
+                                <i class="fas fa-clock"></i>
+                                <select id="regSemester" required>
+                                    <option value="Semester I">Semester I</option>
+                                    <option value="Semester II">Semester II</option>
+                                    <option value="Semester III" selected>Semester III</option>
+                                    <option value="Semester IV">Semester IV</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="regPassword">Password *</label>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="regPassword" placeholder="Minimum 6 characters" minlength="6" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="regConfirmPassword">Confirm Password *</label>
+                            <div class="input-box">
+                                <i class="fas fa-check-double"></i>
+                                <input type="password" id="regConfirmPassword" placeholder="Re-enter password" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
+                        <i class="fas fa-user-plus"></i> Submit Registration
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    Already registered? <a href="#" onclick="switchTab('login')">Click here to Login</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 4: LOGIN & DASHBOARD ================= -->
+        <section id="tab-login" class="tab-pane">
+            <!-- Unauthenticated State: Login Box -->
+            <div id="loginSection" class="auth-wrapper glass">
+                <div class="auth-header">
+                    <span class="badge" style="background: rgba(6,182,212,0.15); color: var(--accent); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 600;">
+                        Secure Authentication
+                    </span>
+                    <h2>Department Student Login</h2>
+                    <p>Enter your Register Number or Email to access your academic dashboard.</p>
+                </div>
+
+                <!-- One click test credentials -->
+                <div class="demo-pill">
+                    <div>
+                        <span>Quick Demo: </span>
+                        <code>24MCA001</code> / <code>password123</code>
+                    </div>
+                    <button type="button" class="btn-fill-demo" onclick="fillDemoCredentials()">Auto Fill</button>
+                </div>
+
+                <div id="loginAlert" class="alert-box hidden"></div>
+
+                <form id="studentLoginForm">
+                    <div class="form-group">
+                        <label for="loginIdentifier">Register Number or University Email *</label>
+                        <div class="input-box">
+                            <i class="fas fa-id-badge"></i>
+                            <input type="text" id="loginIdentifier" placeholder="e.g. 24MCA001 or vishal@pondiuni.ac.in" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password *</label>
+                        <div class="input-box">
+                            <i class="fas fa-key"></i>
+                            <input type="password" id="loginPassword" placeholder="Your password" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
+                        <i class="fas fa-sign-in-alt"></i> Authenticate & Login
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    New to the Department? <a href="#" onclick="switchTab('register')">Register Student Account</a>
+                </div>
+            </div>
+
+            <!-- Authenticated State: Student Portal Dashboard -->
+            <div id="dashboardSection" class="portal-card glass hidden">
+                <div class="portal-top">
+                    <div class="user-badge">
+                        <div class="avatar"><i class="fas fa-user-graduate"></i></div>
+                        <div>
+                            <h3 id="dashName">Student Name</h3>
+                            <span id="dashRegNo">24MCA001 &bull; MCA Semester III</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline" onclick="logoutStudent()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+
+                <div class="portal-grid">
+                    <div class="portal-item">
+                        <h4>Program</h4>
+                        <div class="val" id="dashProgram">MCA</div>
+                    </div>
+                    <div class="portal-item">
+                        <h4>Department Lab Subject</h4>
+                        <div class="val">CSCA 514 (Web Tech Lab)</div>
+                    </div>
+                    <div class="portal-item">
+                        <h4>Overall Attendance</h4>
+                        <div class="val" style="color: #34d399;">94.2%</div>
+                    </div>
+                </div>
+
+                <!-- Enrolled Lab Exercises Table -->
+                <div class="glass" style="padding: 1.5rem; background: rgba(15,23,42,0.4);">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-laptop-code"></i> CSCA 514: Internet & Web Technologies Lab Status</h3>
+                        <span style="font-size: 0.8rem; color: #34d399; font-weight: 600;">ACTIVE RECORD</span>
+                    </div>
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid var(--border-glass); text-align: left; color: var(--text-muted);">
+                                <th style="padding: 0.6rem;">Ex #</th>
+                                <th style="padding: 0.6rem;">Exercise Name</th>
+                                <th style="padding: 0.6rem;">Technology</th>
+                                <th style="padding: 0.6rem;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem;">Ex 1</td>
+                                <td style="padding: 0.6rem;">Resume Static Webpage</td>
+                                <td style="padding: 0.6rem;">HTML5</td>
+                                <td style="padding: 0.6rem; color: #34d399;"><i class="fas fa-check-circle"></i> Completed</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem;">Ex 2</td>
+                                <td style="padding: 0.6rem;">Online Shopping Webpage</td>
+                                <td style="padding: 0.6rem;">HTML & CSS</td>
+                                <td style="padding: 0.6rem; color: #34d399;"><i class="fas fa-check-circle"></i> Completed</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem;">Ex 5</td>
+                                <td style="padding: 0.6rem;">Employee Details in phpMyAdmin</td>
+                                <td style="padding: 0.6rem;">PHP & MySQL</td>
+                                <td style="padding: 0.6rem; color: #34d399;"><i class="fas fa-check-circle"></i> Completed</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 0.6rem;">Ex 6</td>
+                                <td style="padding: 0.6rem;">Dynamic Department Webpage</td>
+                                <td style="padding: 0.6rem;">PHP, MySQL, JS</td>
+                                <td style="padding: 0.6rem; color: #34d399;"><i class="fas fa-check-circle"></i> Active Verified</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal for viewing SQL and PHP code -->
+    <div id="codeModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-code"></i> Department Webpage Backend Code (PHP & phpMyAdmin)</h3>
+                <button type="button" id="closeCodeBtn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4>1. phpMyAdmin Database Schema (<code>department_db.sql</code>)</h4>
+                <pre class="code-box"><code>CREATE DATABASE department_db;
+USE department_db;
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    reg_no VARCHAR(50) NOT NULL UNIQUE,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    program VARCHAR(50) NOT NULL,
+    semester VARCHAR(20) NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    registered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</code></pre>
+
+                <h4 style="margin-top: 1.2rem;">2. PHP Registration Handler (<code>register.php</code>)</h4>
+                <pre class="code-box"><code>&lt;?php
+require_once "db.php";
+$regNo    = $_POST['reg_no'];
+$fullName = $_POST['full_name'];
+$email    = $_POST['email'];
+$program  = $_POST['program'];
+$semester = $_POST['semester'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+$stmt = $conn->prepare("INSERT INTO students (reg_no, full_name, email, program, semester, password_hash) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssss", $regNo, $fullName, $email, $program, $semester, $password);
+$stmt->execute();
+echo json_encode(["status" => "success", "message" => "Registration saved to phpMyAdmin!"]);
+?&gt;</code></pre>
+
+                <h4 style="margin-top: 1.2rem;">3. PHP Login Handler (<code>login.php</code>)</h4>
+                <pre class="code-box"><code>&lt;?php
+session_start();
+require_once "db.php";
+$identifier = $_POST['identifier'];
+$password   = $_POST['password'];
+
+$stmt = $conn->prepare("SELECT * FROM students WHERE reg_no = ? OR email = ?");
+$stmt->bind_param("ss", $identifier, $identifier);
+$stmt->execute();
+$user = $stmt->get_result()->fetch_assoc();
+
+if ($user && password_verify($password, $user['password_hash'])) {
+    $_SESSION['user'] = $user;
+    echo json_encode(["status" => "success", "user" => $user]);
+} else {
+    echo json_encode(["status" => "error", "message" => "Invalid credentials!"]);
+}
+?&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Department of Computer Science, Pondicherry University. MCA Lab Exercise 6.</p>
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>

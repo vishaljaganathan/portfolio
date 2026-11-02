@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Management Application | MCA Lab Exercise 8</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="page-container">
+        <!-- Top Navigation -->
+        <header class="top-header glass">
+            <div class="header-left">
+                <a href="../../index.html#lab-exercises" class="back-btn" title="Back to Portfolio">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <div class="brand-info">
+                    <div class="brand-icon">
+                        <i class="fas fa-address-book"></i>
+                    </div>
+                    <div>
+                        <h1 class="brand-title">ContactHub</h1>
+                        <span class="brand-subtitle">Exercise 8: Full CRUD Contact Manager</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <button type="button" id="openCodeModalBtn" class="btn-code">
+                    <i class="fas fa-database"></i> phpMyAdmin & PHP Backend
+                </button>
+            </div>
+        </header>
+
+        <!-- Main App Grid -->
+        <div class="app-grid">
+            <!-- Left: Add/Edit Form -->
+            <section class="form-card glass">
+                <div class="form-header">
+                    <h2 id="formHeading"><i class="fas fa-user-plus"></i> Add New Contact</h2>
+                    <span id="formModeBadge" class="mode-badge add">Create Mode</span>
+                </div>
+
+                <form id="contactForm">
+                    <input type="hidden" id="contactId">
+
+                    <div class="form-group">
+                        <label for="contactName">Full Name *</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="contactName" placeholder="e.g. Vishal Jaganathan" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactPhone">Phone Number *</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-phone-alt"></i>
+                            <input type="tel" id="contactPhone" placeholder="+91 9876543210" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactEmail">Email Address *</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="contactEmail" placeholder="name@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactCategory">Category / Group</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-tag"></i>
+                            <select id="contactCategory">
+                                <option value="Personal">Personal</option>
+                                <option value="Work" selected>Work</option>
+                                <option value="Family">Family</option>
+                                <option value="Friends">Friends</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactNotes">Notes / Address</label>
+                        <div class="input-wrap">
+                            <i class="fas fa-sticky-note"></i>
+                            <textarea id="contactNotes" rows="2" placeholder="Organization, designation or home address..."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="saveBtn" class="btn-submit">
+                        <i class="fas fa-save"></i> <span id="saveBtnText">Save Contact</span>
+                    </button>
+
+                    <button type="button" id="cancelEditBtn" class="btn-cancel hidden">
+                        <i class="fas fa-times"></i> Cancel Edit
+                    </button>
+                </form>
+            </section>
+
+            <!-- Right: Contact Directory & Search -->
+            <section class="directory-card glass">
+                <div class="dir-header">
+                    <h2><i class="fas fa-users"></i> Contact Directory <span id="totalBadge" class="cat-badge cat-work" style="margin-left: 0.5rem;">0 Contacts</span></h2>
+                    <button type="button" id="resetContactsBtn" class="btn-code" style="padding: 0.35rem 0.75rem; font-size: 0.78rem;">
+                        <i class="fas fa-sync-alt"></i> Reset Demo Contacts
+                    </button>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="search-filter-bar">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="contactSearch" placeholder="Search contacts by name, phone, or email...">
+                    </div>
+                    <div class="filter-pills">
+                        <button class="pill-btn active" data-filter="all">All</button>
+                        <button class="pill-btn" data-filter="Work">Work</button>
+                        <button class="pill-btn" data-filter="Personal">Personal</button>
+                        <button class="pill-btn" data-filter="Family">Family</button>
+                        <button class="pill-btn" data-filter="Friends">Friends</button>
+                    </div>
+                </div>
+
+                <!-- Contacts Grid Container -->
+                <div id="contactsGrid" class="contacts-grid">
+                    <!-- Dynamic Contact Cards injected by script.js -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Code Preview Modal for phpMyAdmin / PHP backend -->
+    <div id="codeModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-code"></i> phpMyAdmin Database & PHP Backend Code</h3>
+                <button type="button" id="closeCodeModalBtn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4>1. phpMyAdmin SQL Table Creation (<code>contacts_db.sql</code>)</h4>
+                <pre class="code-box"><code>CREATE DATABASE contacts_db;
+USE contacts_db;
+
+CREATE TABLE contacts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    category ENUM('Work', 'Personal', 'Family', 'Friends', 'Other') DEFAULT 'Personal',
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</code></pre>
+
+                <h4 style="margin-top: 1.2rem;">2. PHP REST API for CRUD (<code>api.php</code>)</h4>
+                <pre class="code-box"><code>&lt;?php
+$conn = new mysqli("localhost", "root", "", "contacts_db");
+$method = $_SERVER['REQUEST_METHOD'];
+
+if ($method === 'GET') {
+    // VIEW CONTACTS
+    $res = $conn->query("SELECT * FROM contacts ORDER BY id DESC");
+    echo json_encode($res->fetch_all(MYSQLI_ASSOC));
+} elseif ($method === 'POST') {
+    // ADD CONTACT
+    $stmt = $conn->prepare("INSERT INTO contacts (name, phone, email, category, notes) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $_POST['name'], $_POST['phone'], $_POST['email'], $_POST['category'], $_POST['notes']);
+    $stmt->execute();
+} elseif ($method === 'PUT') {
+    // EDIT CONTACT
+    $data = json_decode(file_get_contents("php://input"), true);
+    $stmt = $conn->prepare("UPDATE contacts SET name=?, phone=?, email=?, category=?, notes=? WHERE id=?");
+    $stmt->bind_param("sssssi", $data['name'], $data['phone'], $data['email'], $data['category'], $data['notes'], $data['id']);
+    $stmt->execute();
+} elseif ($method === 'DELETE') {
+    // DELETE CONTACT
+    $stmt = $conn->prepare("DELETE FROM contacts WHERE id=?");
+    $stmt->bind_param("i", $_GET['id']);
+    $stmt->execute();
+}
+?&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMsg">Operation successful!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Information Finder | jQuery & AJAX | MCA Lab 10</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- jQuery 3.7.1 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <div class="page-container">
+        <!-- Top Navigation -->
+        <header class="top-header glass">
+            <div class="header-left">
+                <a href="../../index.html#lab-exercises" class="back-btn" title="Back to Portfolio">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <div class="brand-info">
+                    <div class="brand-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div>
+                        <h1 class="brand-title">BookFinder</h1>
+                        <span class="brand-subtitle">Exercise 10: jQuery $.ajax Data Retrieval</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="viewCodeModalBtn" class="btn-code">
+                    <i class="fas fa-code"></i> View jQuery $.ajax Code
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Hero & Controls -->
+        <section class="control-hero glass">
+            <span class="badge-tag"><i class="fas fa-code-branch"></i> jQuery 3.7 &bull; Asynchronous JavaScript & XML</span>
+            <h2>Fetch Book Information via AJAX</h2>
+            <p>
+                Demonstrating jQuery's <code>$.ajax()</code> method to asynchronously request, parse JSON, and dynamically render book titles and authors on the webpage.
+            </p>
+
+            <!-- Book Search Option (Endpoint hidden from front-end) -->
+            <form id="bookSearchForm" class="book-search-bar" onsubmit="event.preventDefault();">
+                <div class="search-input-wrap">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="bookSearchInput" value="computer science" placeholder="Search books by title, author, or topic..." autocomplete="off">
+                </div>
+                <button type="button" id="loadBooksBtn" class="load-books-btn">
+                    <i class="fas fa-download"></i> Load Books
+                </button>
+            </form>
+
+            <!-- Quick Topic Pills (for Live API) -->
+            <div class="genre-pills" id="genreContainer">
+                <span style="font-size: 0.8rem; color: var(--text-muted); align-self: center;">Popular Topics:</span>
+                <button type="button" class="genre-btn active" data-query="computer science">Computer Science</button>
+                <button type="button" class="genre-btn" data-query="web development">Web Development</button>
+                <button type="button" class="genre-btn" data-query="javascript">JavaScript</button>
+                <button type="button" class="genre-btn" data-query="artificial intelligence">Artificial Intelligence</button>
+                <button type="button" class="genre-btn" data-query="algorithms">Algorithms</button>
+            </div>
+        </section>
+
+        <!-- Books Output Section -->
+        <section class="results-section glass">
+            <div class="results-header">
+                <h3><i class="fas fa-books"></i> Retrieved Book Directory</h3>
+                <span id="bookCountBadge" class="count-badge">Ready to Load</span>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loaderBox" class="state-box hidden">
+                <div class="spinner"></div>
+                <h4>Executing jQuery $.ajax GET Request...</h4>
+                <p>Retrieving JSON data from the specified endpoint.</p>
+            </div>
+
+            <!-- Initial / Empty State -->
+            <div id="emptyBox" class="state-box">
+                <i class="fas fa-book-reader" style="font-size: 2.8rem; color: rgba(255,255,255,0.15); margin-bottom: 0.8rem;"></i>
+                <h3>No Books Loaded Yet</h3>
+                <p>Click the <strong>"Load Books"</strong> button above to trigger the jQuery AJAX call and render the books.</p>
+            </div>
+
+            <!-- Dynamic Books Grid -->
+            <div id="booksGrid" class="books-grid hidden">
+                <!-- Book Cards injected by script.js -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal for viewing jQuery Code -->
+    <div id="codeModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-code"></i> jQuery $.ajax Implementation (Exercise 10)</h3>
+                <button type="button" id="closeCodeModalBtn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4>Lab Exercise Problem Statement Snippet:</h4>
+                <pre class="code-box"><code>// When the "Load Books" button is clicked, an Ajax GET request is made
+// using jQuery's $.ajax method to retrieve a list of books from
+// a hypothetical API endpoint (https://api.example.com/books).
+// The JSON response is then parsed, and a list of books
+// (including titles and authors) is displayed on the webpage.
+
+$("#loadBooksBtn").on("click", function() {
+    $.ajax({
+        url: "https://api.example.com/books", // Or actual API endpoint
+        type: "GET",
+        dataType: "json",
+        beforeSend: function() {
+            $("#loaderBox").show();
+        },
+        success: function(response) {
+            $("#loaderBox").hide();
+            // Parse JSON and render titles & authors
+            response.forEach(function(book) {
+                $("#booksList").append(
+                    "&lt;li&gt;&lt;strong&gt;" + book.title + "&lt;/strong&gt; by " + book.author + "&lt;/li&gt;"
+                );
+            });
+        },
+        error: function(xhr, status, error) {
+            $("#loaderBox").hide();
+            alert("Error loading books: " + error);
+        }
+    });
+});</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>

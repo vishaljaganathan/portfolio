@@ -3,109 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Registration Form | MCA Lab Exercise</title>
+    <title>Employee Management & phpMyAdmin Database | MCA Lab</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="form-container">
-        <div class="form-box">
-            <div class="form-header">
-                <h2>Employee Registration</h2>
-                <p>Please enter the employee details below.</p>
+    <div class="page-wrapper">
+        <!-- Top Navigation -->
+        <header class="topbar">
+            <a href="../../index.html#lab-exercises" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <div class="top-actions">
+                <button type="button" id="viewCodeBtn" class="code-toggle-btn">
+                    <i class="fas fa-code"></i> View PHP & phpMyAdmin SQL
+                </button>
             </div>
-            
-            <form id="employeeForm">
-                <div class="form-group">
-                    <label for="fullName">Full Name</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-user"></i>
-                        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
-                    </div>
-                </div>
+        </header>
 
-                <div class="form-row">
-                    <div class="form-group half">
-                        <label for="email">Email Address</label>
+        <div class="content-grid">
+            <!-- Form Card -->
+            <div class="form-box">
+                <div class="form-header">
+                    <div class="badge-pill"><i class="fas fa-database"></i> Exercise 5: phpMyAdmin Database</div>
+                    <h2>Employee Registration</h2>
+                    <p>Enter details below to store record into MySQL / phpMyAdmin database table.</p>
+                </div>
+                
+                <form id="employeeForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
                         <div class="input-wrapper">
-                            <i class="fas fa-envelope"></i>
-                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="fullName" name="fullName" placeholder="e.g. Vishal Jaganathan" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="email">Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" placeholder="vishal@example.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group half">
+                            <label for="phone">Phone Number</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="phone" name="phone" placeholder="+91 9876543210" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="department">Department</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-building"></i>
+                                <select id="department" name="department" required>
+                                    <option value="" disabled selected>Select Department</option>
+                                    <option value="Engineering">Engineering</option>
+                                    <option value="Design">Design</option>
+                                    <option value="Human Resources">Human Resources</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Sales">Sales</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group half">
+                            <label for="joinDate">Joining Date</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-calendar"></i>
+                                <input type="date" id="joinDate" name="joinDate" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <div class="input-wrapper textarea-wrapper">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <textarea id="address" name="address" rows="2" placeholder="Full residential address" required></textarea>
                         </div>
                     </div>
                     
-                    <div class="form-group half">
-                        <label for="phone">Phone Number</label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-phone"></i>
-                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group half">
-                        <label for="department">Department</label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-building"></i>
-                            <select id="department" name="department" required>
-                                <option value="" disabled selected>Select Department</option>
-                                <option value="engineering">Engineering</option>
-                                <option value="design">Design</option>
-                                <option value="hr">Human Resources</option>
-                                <option value="marketing">Marketing</option>
-                                <option value="sales">Sales</option>
-                            </select>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="Male" required checked> Male
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="Female" required> Female
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="Other" required> Other
+                            </label>
                         </div>
                     </div>
 
-                    <div class="form-group half">
-                        <label for="joinDate">Joining Date</label>
-                        <div class="input-wrapper">
-                            <i class="fas fa-calendar"></i>
-                            <input type="date" id="joinDate" name="joinDate" required>
-                        </div>
-                    </div>
-                </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-save"></i> Save Employee into Database
+                    </button>
+                </form>
 
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <div class="input-wrapper textarea-wrapper">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <textarea id="address" name="address" rows="3" placeholder="Full residential address" required></textarea>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>Gender</label>
-                    <div class="radio-group">
-                        <label class="radio-label">
-                            <input type="radio" name="gender" value="male" required> Male
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="gender" value="female" required> Female
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="gender" value="other" required> Other
-                        </label>
-                    </div>
-                </div>
-
-                <button type="submit" class="submit-btn">
-                    Register Employee <i class="fas fa-arrow-right"></i>
-                </button>
-            </form>
-
-            <div id="successMessage" class="success-message hidden">
-                <div class="success-icon">
+                <div id="toastMessage" class="toast-message hidden">
                     <i class="fas fa-check-circle"></i>
+                    <span>Employee saved into database table successfully!</span>
                 </div>
-                <h3>Registration Successful!</h3>
-                <p>The employee details have been saved successfully.</p>
-                <button id="addAnotherBtn" class="add-another-btn">Add Another Employee</button>
+            </div>
+
+            <!-- Stored Database Records View -->
+            <div class="table-box">
+                <div class="table-header">
+                    <div>
+                        <h3><i class="fas fa-table"></i> Database: <code>employee_db</code> &rarr; Table: <code>employees</code></h3>
+                        <p class="subtext">Simulating phpMyAdmin live table data with local client persistence</p>
+                    </div>
+                    <div class="table-actions">
+                        <span class="badge" id="recordCount">0 Records</span>
+                        <button type="button" id="resetDataBtn" class="btn-sm btn-outline" title="Reset sample records">
+                            <i class="fas fa-redo"></i> Reset Demo Data
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>#ID</th>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Join Date</th>
+                                <th>Gender</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="employeeTableBody">
+                            <!-- Injected by script.js -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        
-        <a href="../../index.html#lab-exercises" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    </div>
+
+    <!-- Modal for viewing SQL and PHP code -->
+    <div id="codeModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-code"></i> phpMyAdmin Database Setup & PHP Script</h3>
+                <button type="button" id="closeModalBtn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4>1. phpMyAdmin SQL Table Creation (<code>employee_db.sql</code>)</h4>
+                <pre class="code-snippet"><code>CREATE DATABASE employee_db;
+USE employee_db;
+
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    phone VARCHAR(20) NOT NULL,
+    department VARCHAR(50) NOT NULL,
+    join_date DATE NOT NULL,
+    address TEXT NOT NULL,
+    gender ENUM('Male', 'Female', 'Other') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</code></pre>
+
+                <h4 style="margin-top: 1.5rem;">2. PHP Backend Connection & Insert Script (<code>insert_employee.php</code>)</h4>
+                <pre class="code-snippet"><code>&lt;?php
+$conn = new mysqli("localhost", "root", "", "employee_db");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $stmt = $conn->prepare("INSERT INTO employees (full_name, email, phone, department, join_date, address, gender) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssss", $_POST['fullName'], $_POST['email'], $_POST['phone'], $_POST['department'], $_POST['joinDate'], $_POST['address'], $_POST['gender']);
+    
+    if ($stmt->execute()) {
+        echo "Record stored into phpMyAdmin database successfully!";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+    $stmt->close();
+}
+$conn->close();
+?&gt;</code></pre>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
