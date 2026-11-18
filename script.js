@@ -132,3 +132,57 @@ if (contactForm) {
         contactForm.reset();
     });
 }
+
+// --- Exercise Preview Modal Logic ---
+function openExercisePreview(title, imgSrc, desc, techStack, launchUrl) {
+    const modal = document.getElementById('exercisePreviewModal');
+    if (!modal) return;
+    
+    document.getElementById('previewModalTitle').textContent = title;
+    const imgEl = document.getElementById('previewModalImg');
+    imgEl.src = imgSrc;
+    imgEl.alt = title + ' Preview';
+    document.getElementById('previewModalDesc').textContent = desc;
+    
+    // Tech badges
+    const techContainer = document.getElementById('previewModalTech');
+    techContainer.innerHTML = '';
+    if (techStack) {
+        techStack.split(',').forEach(tech => {
+            const span = document.createElement('span');
+            span.textContent = tech.trim();
+            techContainer.appendChild(span);
+        });
+    }
+    
+    const launchBtn = document.getElementById('previewModalLaunchBtn');
+    launchBtn.href = launchUrl;
+    if (launchUrl.startsWith('#')) {
+        launchBtn.innerHTML = '<i class="fas fa-arrow-up"></i> View Section';
+        launchBtn.onclick = () => closeExercisePreview();
+    } else {
+        launchBtn.innerHTML = '<i class="fas fa-play"></i> Launch Exercise <i class="fas fa-arrow-right"></i>';
+        launchBtn.onclick = null;
+    }
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeExercisePreview(e) {
+    if (e && e.target && e.target !== e.currentTarget && !e.target.classList.contains('preview-close-btn')) {
+        return;
+    }
+    const modal = document.getElementById('exercisePreviewModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeExercisePreview();
+    }
+});
